@@ -23,13 +23,25 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE GOES ABOVE HERE //
+     var rangeArray = [];
+    if(start < end){
+        let i = start;
+        while(i < end + 1){
+            rangeArray.push(i);
+            i++
+        }
+        return rangeArray
+        
+    }
+    else if(end < start){
+      let i = start;
+      while(i > end - 1){
+        rangeArray.push(i);
+        i--;
+      }
+      return rangeArray
+    }
 }
-
 
 
 
