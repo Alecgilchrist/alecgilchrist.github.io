@@ -32,11 +32,11 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    if(!Array.isArray(value) || value === !null || value !instanceof Date){
+    if(Array.isArray(value) || value === null || value instanceof Date){
         return false;
     }
     else if (typeof value === 'object'){
-        return true;
+        return true
     }
     else {
         return false;
