@@ -36,7 +36,7 @@ function isObject(value) {
         return false;
     }
     else if (typeof value === 'object'){
-        return true
+        return true;
     }
     else {
         return false;
