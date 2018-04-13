@@ -1,0 +1,1 @@
+//closure is when a function uses a variable from outside its scope, ie an anonymous function using a parameter from its parent function

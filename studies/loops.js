@@ -69,3 +69,28 @@ counts down backwards, adding itself every iteration to rangeArray
 }
 range(40, 20);
 
+// we can also loop over objects. using a for in loop 
+function printObjectValues(object) {
+  // YOUR CODE BELOW HERE //
+  for(var key in object){
+    console.log(object[key]);
+  }
+}
+// we can even loop over an array of arrays, or even an array of objects.
+
+let arrOfObjects =[{one: 1, two: 2, three: 3}, {one: 4, two: 5, three: 6},{one: 7, two: 8, three: 9}]
+function printValuesOfNested(array){
+    let values = [];
+    for(let i = 0; i < array.length; i++){
+        values.push(array[i].two)
+        
+    }
+    console.log(values);
+}
+printValuesOfNested(arrOfObjects);
+/*here we have created a function that allows us to populate an new array values, and populate it with the key named two from our objects
+* inside of arrOfObjects. Loops can be utilized in many ways. we have been incrementing by one on our loops,but we can increment in any value
+* that we want. we can do i + 2 to skip over every other item. we can start our index at any set location, we can dynamically set it using data
+* from another source. ie: for(let i = arrOfObjects.length / 2; i < array.length; i + 4). We can combine variations on these manipulations to modify 
+* data from deep within containers. hitting each one, or skipping over known and unneeded data
+*/

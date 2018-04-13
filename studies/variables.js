@@ -25,6 +25,7 @@ console.log(myName); // prints => undefined
 myName = 'john';
 console.log(myName); // prints => john
 
+
 // 3. re-assignment //
 myName = 'bob';
 console.log(myName); // prints => bob
@@ -34,6 +35,12 @@ var myVariable = 1;
 var myVariable = true;
 myVariable = "someString"
 
-/* closure is when a function uses a variable from outside its scope, ie an anonymous function using a parameter from its parent function
+/* there are multiple ways to declare a variable, and where they are, and what scope we want them to interact with, as well as if we want them 
+*to be mutable plays into which of these declarations we use. var will hoist to the top of its scope. this can be useful, but can also cause  
+*unwanted side effects. Javascript does not use block scoping for var. though var will not hoist past its parent function.
+*when we are declaring variables, in particular inside of loops, and conditionals. where var will be hoisted, it can be better
+*to use the declaration let. let is block scoped. and can be a little easier to manage where it will go, and what will happen to it
+*
 *
 */
+
