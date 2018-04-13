@@ -23,7 +23,7 @@
  *         the contact-list.
  * 
  * BONUS : add a printAllContactNames() Function to your makeContactList() factory, so that the 
- *         contact-list returned has an all() API. The printAllContactNames() Function should 
+ *         contact-list returned has an printAllContactNames() API. The printAllContactNames() Function should 
  *         return a String formated with all the full-names of the separated 
  *         with a line-break, like so:
  *          
@@ -37,7 +37,11 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
-
+    let contact ={};
+    contact.id = id;
+    contact.nameFirst = nameFirst;
+    contact.nameLast = nameLast;
+    return contact
 } 
 
 
@@ -45,16 +49,42 @@ function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
+    var contacts = [];
     
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
+        },
+        addContact: function(contact) {
+            contacts.push(contact)
+        },
+        findContact: function(fullName){
+           for(let index = 0; index < contacts.length; index++){
+               if(fullName === contacts[index].nameFirst + ' ' + contacts[index].nameLast){
+                   return contacts[index]
+               }
+          }
+                
+        },
+        removeContact: function(contact){
+        for (var i = 0; i < contacts.length; i++)
+            if (contacts[i].nameFirst === contact.nameFirst && contacts[i].nameLast === contact.nameLast) {
+                contacts.splice(i,1);
         }
-    }
+            
+        },
+        printAllContactNames: function(){
+            let list =[];
+           for(let i = 0; i < contacts.length; i++){
+              list.push(contacts[i].nameFirst + ' ' + contacts[i].nameLast);
+           }
+           return list.join('\n')
+            
+        
+        }
 }
-
+}
 
 
 

@@ -32,4 +32,8 @@ console.log(myName); // prints => bob
 // NOTE: We can assign and re-assign anything to a variable - we cannot do this with constants //
 var myVariable = 1;
 var myVariable = true;
-myVariable = "someString";
+myVariable = "someString"
+
+/* closure is when a function uses a variable from outside its scope, ie an anonymous function using a parameter from its parent function
+*
+*/
