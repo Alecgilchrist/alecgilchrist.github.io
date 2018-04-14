@@ -88,9 +88,22 @@ function printValuesOfNested(array){
     console.log(values);
 }
 printValuesOfNested(arrOfObjects);
+
 /*here we have created a function that allows us to populate an new array values, and populate it with the key named two from our objects
 * inside of arrOfObjects. Loops can be utilized in many ways. we have been incrementing by one on our loops,but we can increment in any value
 * that we want. we can do i + 2 to skip over every other item. we can start our index at any set location, we can dynamically set it using data
 * from another source. ie: for(let i = arrOfObjects.length / 2; i < array.length; i + 4). We can combine variations on these manipulations to modify 
 * data from deep within containers. hitting each one, or skipping over known and unneeded data
+* we can also approach this from a functional side, and use a recursive function to achieve the same result. 
 */
+
+var test =[1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+function printArrayValuesInRecurse(array, i = 0) {
+  if(i === array.length)return;
+    
+    console.log(array[i]);
+    printArrayValuesInRecurse(array, ++i);
+  
+}
+printArrayValuesInRecurse(test);
