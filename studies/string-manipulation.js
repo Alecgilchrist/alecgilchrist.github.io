@@ -28,7 +28,7 @@ var message = 'I am a string'
 *toUpperCase()	Converts a string to uppercase letters
 *trim()	Removes whitespace from both ends of a string
 *valueOf()	Returns the primitive value of a String object
-*various manipulations are shown below
+*various manipulations are shown below using methods, and operators like < > +
 */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
