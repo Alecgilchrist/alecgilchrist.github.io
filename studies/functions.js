@@ -27,7 +27,8 @@ multiply();
 console.log(added);
 /*
 *Some of the above can have unintended side effects. Added is available on the global scope, we can run into problems with it being modified 
-* by other things. We can take advantage of closures here, and nest all of this together. JavaScript supports nested functions, and they
+* by other things. We can take advantage of closures here, and nest all of this together. JavaScript supports nested functions,
+* and they are a first class object, so we can assign them to variables, pass them as arguments, and return them as the value of functions. They
 * are a powerful tool in allowing us to have more predictable code, and more pure functions. we can utilize nested functions to allow us to save 
 * the values by reference, allowing us to make changes, while keeping some privacy, and utilizing closure, we can do some pretty cool things.
 * make changes rather than having functions splayed everywhere through our code, we have ways of encasing, or nesting them together. in
@@ -39,6 +40,7 @@ console.log(added);
 */
 function manipulateNumber(number){
   let manipulated = number;
+  let numberStorage = [];
   return{
     add: function(numberToAdd){
       manipulated += numberToAdd;
@@ -58,10 +60,12 @@ function manipulateNumber(number){
     },
     save: function(){
       numberStorage.push(manipulated);
+    },
+    changeHistory: function(){
+        return numberStorage;
     }
   };
 }
-var numberStorage = [];
 var number1 = manipulateNumber(5); // here we pass in the number 5 to our manipulate number function by assigining it to a variable 
 console.log(number1.show()); // here we can use our show function, to check the value
 number1.set(10); //here we can change the value of our number in manipulation
@@ -72,6 +76,6 @@ console.log(number1.show());
 number1.save(); //push the new change to our array
 number1.reset(); //return the number to its original value
 console.log(number1.show());
-console.log(numberStorage); //check the list of changes
+console.log(number1.changeHistory()); //check the list of changes
 
 
