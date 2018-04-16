@@ -75,7 +75,7 @@ myVariable = "someString"
 
 function luckyNumber (firstNumber, secondNumber) {
     var numMessage = "Your lucky number is ";
-    // this inner function has access to the outer function's variables, including the parameter​
+    // this inner function has access to the outer function's variables, including the parameter
 function calculateLucky () {
     return numMessage + (firstNumber + 2*(secondNumber));
 }

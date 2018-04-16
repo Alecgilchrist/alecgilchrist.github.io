@@ -1,29 +1,32 @@
 
-/* Functions are one of our most utilized building blocks in JavaScript at the most basic level, a function takes an argument, and returns 
+/*
+* Functions are one of our most utilized building blocks in JavaScript at the most basic level, a function takes an argument, and returns 
 * a value. A function declaration, or function statement consists of the function keyword, followed by
 * The name of the function. A list of parameters to the function, enclosed in parentheses and separated by commas,
 * and the JavaScript statements that define the function, enclosed in curly brackets, { }. 
 */
 function add(number, number2){ // here we declare and name a function add, that accepts 2 arguments, here our parameter show we expect numbers
-    return number + number2 // here we give the action to be passed to our parameters, and the value for our function to return once called
+    return number + number2; // here we give the action to be passed to our parameters, and the value for our function to return once called
 }// here we end the code block that define the function
-var added = add(2, 2) // here we call, or use the function passing in 2 2's as arguments. these arguments replace our parameters
+var added = add(2, 2); // here we call, or use the function passing in 2 2's as arguments. these arguments replace our parameters
 
-/* we now have a variable, added that contains the value that our function resolves to. in this case, as we passed in 2, and 2, our function
-*has taken them and added them. Now we can use added anywhere in our code, and we can use the function add as many times as we need throughout
+/* 
+* we now have a variable, added that contains the value that our function resolves to. in this case, as we passed in 2, and 2, our function
+* has taken them and added them. Now we can use added anywhere in our code, and we can use the function add as many times as we need throughout
 * we dont always need to name a function. we can declare it inside a function and create closures on the parent function to retain the use of 
 * passed arguments far later in the code, and outside of our anon functions scope. We also dont have to pass in any arguments. we can define a
 * function to pull from a variable in the global scope. here we have our variable added being reassigned by * 2. we can use the  
 */
-console.log(added)
+console.log(added);
 
 function multiply(){
     added*= 2;
 }
 multiply();
 
-console.log(added)
-/*Some of the above can have unintended side effects. Added is available on the global scope, we can run into problems with it being modified 
+console.log(added);
+/*
+*Some of the above can have unintended side effects. Added is available on the global scope, we can run into problems with it being modified 
 * by other things. We can take advantage of closures here, and nest all of this together. JavaScript supports nested functions, and they
 * are a powerful tool in allowing us to have more predictable code, and more pure functions. we can utilize nested functions to allow us to save 
 * the values by reference, allowing us to make changes, while keeping some privacy, and utilizing closure, we can do some pretty cool things.
@@ -69,6 +72,6 @@ console.log(number1.show());
 number1.save(); //push the new change to our array
 number1.reset(); //return the number to its original value
 console.log(number1.show());
-console.log(numberStorage) //check the list of changes
+console.log(numberStorage); //check the list of changes
 
 

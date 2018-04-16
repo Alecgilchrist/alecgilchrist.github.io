@@ -43,7 +43,7 @@
 * typeof myCar - Returns undefined (if myCar is not declared)
 * typeof null - Returns object
 * we can test for object truly by 
-*/
+
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
     if(value === null){
@@ -59,3 +59,4 @@ function typeOf(value) {
         return typeof value;
     }
 }
+*/
