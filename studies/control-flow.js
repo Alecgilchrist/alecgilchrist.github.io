@@ -36,7 +36,7 @@ listNumbers(fibonacci);
 */
 let time = '14';
 let message = '';
-switch (new Date().getDay()) {
+switch(time) {
     case 0:
     if(time < 12){
         message = "good morning"
