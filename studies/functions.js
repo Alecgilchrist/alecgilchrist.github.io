@@ -1,6 +1,7 @@
 
 /*
-* Functions are one of our most utilized building blocks in JavaScript at the most basic level, a function takes an argument, and returns 
+* Functions are one of our most utilized building blocks in JavaScript at the most basic level, they are a reusable block of code
+* and allow us to save time and work by allowing us to reuse code. a function takes an argument, and returns 
 * a value. A function declaration, or function statement consists of the function keyword, followed by
 * The name of the function. A list of parameters to the function, enclosed in parentheses and separated by commas,
 * and the JavaScript statements that define the function, enclosed in curly brackets, { }. 
@@ -20,13 +21,13 @@ var added = add(2, 2); // here we call, or use the function passing in 2 2's as 
 console.log(added);
 
 function multiply(){
-    added*= 2;
+    added *= 2;
 }
 multiply();
 
 console.log(added);
-/*
-*Some of the above can have unintended side effects. Added is available on the global scope, we can run into problems with it being modified 
+/* A closure is formed when a functions reaches outside of its scope in order to use a value from a parent scope. Closures are 
+* Some of the above can have unintended side effects. Added is available on the global scope, we can run into problems with it being modified 
 * by other things. We can take advantage of closures here, and nest all of this together. JavaScript supports nested functions,
 * and they are a first class object, so we can assign them to variables, pass them as arguments, and return them as the value of functions. They
 * are a powerful tool in allowing us to have more predictable code, and more pure functions. we can utilize nested functions to allow us to save 
@@ -79,3 +80,19 @@ console.log(number1.show());
 console.log(number1.changeHistory()); //check the list of changes
 
 
+
+function luckyNumber (firstNumber, secondNumber) {
+    var numMessage = "Your lucky number is ";
+    // this inner function has access to the outer function's variables, including the parameter
+function calculateLucky () {
+    return numMessage + (firstNumber + 2*(secondNumber));
+}
+  return calculateLucky()
+}
+luckyNumber(10,32)
+
+/* here we create another closure. our function luckyNumber, has 2 parameters firstNumber and secondNumber. we declare and define a variable numMessage
+* that says 'Your lucky number is ' we then declare a function to calculate our lucky number. our nested function calculateLucky, has access to 
+* all of luckyNumbers parameters and variables. even after luckyNumber has been used, we can use calculateLucky. the variables are stored by reference
+* not by value. so even if they change value later on in the code, we still have access to them in our calculateLucky()
+*/

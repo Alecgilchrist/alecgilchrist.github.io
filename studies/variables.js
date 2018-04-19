@@ -37,7 +37,7 @@ myVariable = "someString"
 
 /*there are multiple ways to declare a variable, and where they are, and what scope we want them to interact with, as well as if we want them 
 * to be mutable plays into which of these declarations we use. var will hoist to the top of its scope. this can be useful, but can also cause  
-* unwanted side effects. Javascript does not use block scoping for var. though var will not hoist past its parent function.
+* unwanted side effects, such as interference from other functions, or a varible getting reassigned or changed inadvertantly. Javascript does not use block scoping for var. though var will not hoist past its parent function.
 * when we are declaring variables, in particular inside of loops, and conditionals. where var will be hoisted, it can be better
 * to use the declaration let. let is block scoped. and can be a little easier to manage where it will go, and what will happen to it
 * var's declaration is hoisted to the top of its scope. so we have access to it earlier in the code than it actually is. The assigned value of the variable
@@ -73,18 +73,3 @@ myVariable = "someString"
 * structures.
 */
 
-function luckyNumber (firstNumber, secondNumber) {
-    var numMessage = "Your lucky number is ";
-    // this inner function has access to the outer function's variables, including the parameter
-function calculateLucky () {
-    return numMessage + (firstNumber + 2*(secondNumber));
-}
-  return calculateLucky()
-}
-luckyNumber(10,32)
-
-/* here we create a closure. our function luckyNumber, has 2 parameters firstNumber and secondNumber. we declare and define a variable numMessage
-* that says 'Your lucky number is ' we then declare a function to calculate our lucky number. our nested function calculateLucky, has access to 
-* all of luckyNumbers parameters and variables. even after luckyNumber has been used, we can use calculateLucky. the variables are stored by reference
-* not by value. so even if they change value later on in the code, we still have access to them in our calculateLucky()
-*/

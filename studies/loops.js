@@ -71,7 +71,6 @@ range(40, 20);
 
 // we can also loop over objects. using a for in loop 
 function printObjectValues(object) {
-  // YOUR CODE BELOW HERE //
   for(var key in object){
     console.log(object[key]);
   }

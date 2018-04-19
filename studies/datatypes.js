@@ -5,14 +5,16 @@
 * + as a concatenation. so x will = a string "Hello 1". without Datatypes, very simple needs in our program could not happen.
 * 5 data types that are primitives
 * Boolean - a true or false value. 
+* NaN - a value representing not a number
 * Null - an intentional nothing, never seen in the "wild" it is placed in a program to say this is meant to be nothing
-* Undefined - indicates that a variable has not been assigned a value.
+* Undefined - indicates a lack of value, like a declared but unassigned variable, or a function that doesnt return a value.
 * Number - Any rational number, some other real numbers are available through methods, 
 * String - a series of characters
-* and our complex datatype
+* and our complex datatypes
 * Object - a variable that contains many values
+* Array - a 0 indexed list
 * infinity functions as it does in mathematics
-* -infinity has a nummber of rules that make it function differently than mathematical infinity
+* NEGATIVE infinity has a nummber of rules that make it function differently than mathematical infinity
 * The value of Number.NEGATIVE_INFINITY is the same as the negative value of the global object's Infinity property.
 * Any positive value, including POSITIVE_INFINITY, multiplied by NEGATIVE_INFINITY is NEGATIVE_INFINITY.
 * Any negative value, including NEGATIVE_INFINITY, multiplied by NEGATIVE_INFINITY is POSITIVE_INFINITY.

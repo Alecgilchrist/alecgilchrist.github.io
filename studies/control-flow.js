@@ -12,7 +12,7 @@ console.log(arr[2]);
 * we are working with a small list here, so its not the worst way to access things, its quick and to the point. but we know the position of the
 * values we want. and we know the location within the array. what if our array is larger. and what if we dont know what exactly is in it. we need 
 * to be able to have the ability to check through the array, and we need to be able to check for a condition. often this boils down to checking 
-* for a boolean. if(some state exists){run this code} is a powerful way to conditionally apply code. if the boolean is true, the code get run.
+* for a boolean. if(some state exists){run this code} is a powerful way to conditionally apply code. if the boolean is true, the code gets run.
 */ 
 
 var fibonacci = [ 0,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181,6765,10946,17711,28657,46368,75025,121393,];
@@ -34,30 +34,23 @@ listNumbers(fibonacci);
 * with its chain of if, else if, else. dictating the flow of the program.
 * we can also use a switch statement. if we have a limited number of cases, that wont change, a switch may be the best option, ie the days of the week
 */
-let day = '';
+let time = '14';
+let message = '';
 switch (new Date().getDay()) {
     case 0:
-        day = "Sunday";
+    if(time < 12){
+        message = "good morning"
+    }
         break;
     case 1:
-        day = "Monday";
+    if(time < 16){
+        message = "Good Afternoon"
+    }
         break;
     case 2:
-        day = "Tuesday";
-        break;
-    case 3:
-        day = "Wednesday";
-        break;
-    case 4:
-        day = "Thursday";
-        break;
-    case 5:
-        day = "Friday";
-        break;
-    case 6:
-        day = "Saturday";
+        if(time < 24){
+        message = "Good Evening"
+    }
 }
 
-/*in the above pseudo code, we make us of the date and getday methods to return a numerical value based on the day of the week, we then
-* assign a string with the day, based on that number, to our variable day.
-*/
+// in the above we will get the message "Good Afternoon"

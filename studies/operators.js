@@ -45,7 +45,6 @@
 * we can test for object truly by 
 
 function typeOf(value) {
-    // YOUR CODE BELOW HERE //
     if(value === null){
         return 'null';
     }
