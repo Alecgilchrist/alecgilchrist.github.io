@@ -9,6 +9,7 @@ function objectValues(object) {
     }
     return values
 } 
+//or return Object.values(object);
 
 //////////////////////////////////////////////////////////////////////
 // Function 2 - Keys to String ///////////////////////////////////////
@@ -137,7 +138,43 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-//var result = objArray.map(function(a) {return a.foo;});
+/*
+    for(let person of array){
+        if(person.name !== name && !person.friends.includes(name))
+        notFriends.push(person.name)
+    }
+    function noFriends(name, array){
+  const notFriends = array.filter(function(person){
+    if(person.name !== name && !person.friends.includes(name)){
+    return person
+    }
+  });
+ // console.log(notFriends)//
+    return notFriends.map(function(person){
+        return person.name
+        
+});
+
+}
+*/
+function nonFriends(name, array){
+     const notFriends = array.filter(person => person.name !== name && !person.friends.includes(name))
+     return notFriends.map(person => person.name)
+}
+    
+/*
+ function nonFriends(name, array){
+    let nonFriend = [];
+    for(let i = 0; i < array.length; i++){
+        if(array[i].friends.includes(name) === false && array[i].name !== name){
+            nonFriend.push(array[i].name)
+        }
+    }
+    return nonFriend
+}
+/*
+*
+
 function nonFriends(name, array) {
     let friends = [];
     let notFriend = [];
@@ -162,7 +199,7 @@ function nonFriends(name, array) {
 
     return notFriend;
 }
-
+*/
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -175,7 +212,14 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+/*
+function removePropertie(object, array){
+    for(let prop of array){
+        delete object[prop]
+    }
+    return object
+}
+*/
 function removeProperties(object, array) {
     let props = Object.getOwnPropertyNames(object)
     let toRemove = []
@@ -191,16 +235,42 @@ function removeProperties(object, array) {
     }
 }
 }
-
+/*
+for(let i = 0; i < array.length; i++){
+    delete object[array[i]
+*/
 //////////////////////////////////////////////////////////////////////
 // Function 16 - Dedup ///////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+/*
+function dedup(array){
+  let unique = []
+  for(let i=0; i < array.length; i++){
+    if(unique.indexOf(array[i]) === -1){
+      unique.push(array[i])
+    }
+  }  
+  return unique
+  
+}
 
-function dedup(array) {
+*/
+function dedup(array){
+let unique = []
+    for(let prop of array){
+        if(unique.indexOf(prop) === -1){
+            unique.push(prop)
+    }
+   
+}
+ return unique
+}
+
+/*function dedup(array) {
      return Array.from(new Set(array));
 
 }
-
+*/
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////

@@ -93,7 +93,7 @@ printValuesOfNested(arrOfObjects);
 * that we want. we can do i + 2 to skip over every other item. we can start our index at any set location, we can dynamically set it using data
 * from another source. ie: for(let i = arrOfObjects.length / 2; i < array.length; i + 4). We can combine variations on these manipulations to modify 
 * data from deep within containers. hitting each one, or skipping over known and unneeded data
-* we can also approach this from a functional side, and use a recursive function to achieve the same result. 
+* we can also approach this from a recursive side, and use a recursive function to achieve the same result. 
 */
 
 var test =[1, 2, 3, 4, 5, 6, 7, 8, 9];

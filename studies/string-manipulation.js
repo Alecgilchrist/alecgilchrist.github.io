@@ -1,9 +1,11 @@
 //strings are text in javascript. If we need a value to be a word, phrase, character, or we want the compiler to understand, these are words not commands.
 var message = 'I am a string'
-/*when used, the value of message remains as those characters, including whitespace, indexed justg like an array.
+/*
+* strings are a primitive, immutable datatype. so all of these methods return a copy of the string after changes.
+* when used, the value of message remains as those characters, including whitespace, indexed just like an array.
 * we can use bracket notation to pull out a specific char, or we can loop over the string via the index just like we would an array
 * ie in console.log(message[0]); would give us "I". we can use this index access parts of a string, but
-* strings are immutable. You cannot change a character within a string with something like var myString = "abbdef"; myString[2] = 'c'. 
+* strings are immutable. You cannot change a character within a string with something like var myString = "hello"; myString[2] = 'c'. 
 * The string manipulation methods such as trim, slice return new strings.so assihgning a new variable, and running a manipulation on a string allows us
 * to make changes to our code, without changing the original string. 
 * charAt()	Returns the character at the specified index (position)
@@ -28,6 +30,10 @@ var message = 'I am a string'
 * valueOf()	Returns the primitive value of a String object
 * various manipulations are shown below using methods, and operators like < > +
 */
+function capFirstWord(string){
+    return string[0].toUpperCase + string.slice(1).toLowerCase()
+}
+
 function endsWith(string, char) {
     var charNew = char.toLowerCase();
     var stringNew = string.toLowerCase();

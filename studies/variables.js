@@ -1,43 +1,27 @@
-/*
- * VARIABLES:
- *
- * 0. To hold things in memory during the life-cycle of a program, we can use variables.  Variables 
- * are named identifiers that can point to values of a particular type, like a Number, String, 
- * Boolean, Array, Object or another data-type.  Variables are called so because once created, we 
- * can CHANGE the value (and type of value) to which they point.
- *
- * 1. To create a variable we use the keyword, var, followed by a name (id or alias) for our 
- * variable.
- *
- * 2. There are 2 phases of using variables: declaration and initialization (or assignment).
- */
+/*Variables
+* A variable is a way for us to store information in our programs.
+* they start with a declaration
+var a;
+const b = 2;
+let c;
+* As seen above, we have 3 ways we can declare a variable. We dont always have to assign a value right away t a variable, sometimes, we
+* need to declare them, so they are available, but we dont need them to have a value yet. declaring with const, is a bit different, as
+* we must assign it an unchanging value when we declare it. We can then assign a value to our variables
+a = 1
+c = 3
+* since we have already declared our variables, we can use an assignment operator to give them a value. we can also reassign var or let variables
+* by use of another assigment operator.
 
-// 1. declaration //
-var myName; 
+a = 3 
+c = 4
+* we can pass our variables into functions, or even into the assignments of other variables
+c = a + a
 
-/*
- * At the declaration phase, the variable myName is undefined because we have NOT initialized 
- * it to anything 
- */ 
-console.log(myName); // prints => undefined
-
-// 2. initialization or assignment //
-myName = 'john';
-console.log(myName); // prints => john
-
-
-// 3. re-assignment //
-myName = 'bob';
-console.log(myName); // prints => bob
-
-// NOTE: We can assign and re-assign anything to a variable - we cannot do this with constants //
-var myVariable = 1;
-var myVariable = true;
-myVariable = "someString"
-
-/*there are multiple ways to declare a variable, and where they are, and what scope we want them to interact with, as well as if we want them 
-* to be mutable plays into which of these declarations we use. var will hoist to the top of its scope. this can be useful, but can also cause  
-* unwanted side effects, such as interference from other functions, or a varible getting reassigned or changed inadvertantly. Javascript does not use block scoping for var. though var will not hoist past its parent function.
+*
+* where they are, and what scope we want them to interact with, as well as if we want them 
+* to be mutable plays into which of these declarations we use. var will hoist the declaration to the top of its scope. this can be useful, but can also cause  
+* unwanted side effects, such as interference from other functions, or a varible getting reassigned or changed inadvertantly. 
+* Javascript does not use block scoping for var. though var will not hoist past its parent function.
 * when we are declaring variables, in particular inside of loops, and conditionals. where var will be hoisted, it can be better
 * to use the declaration let. let is block scoped. and can be a little easier to manage where it will go, and what will happen to it
 * var's declaration is hoisted to the top of its scope. so we have access to it earlier in the code than it actually is. The assigned value of the variable

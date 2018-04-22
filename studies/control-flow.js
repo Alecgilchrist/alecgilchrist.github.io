@@ -16,13 +16,24 @@ console.log(arr[2]);
 */ 
 
 var fibonacci = [ 0,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181,6765,10946,17711,28657,46368,75025,121393,];
-function listNumbers(arr, i = 0){
-    if(i === arr.length)return;
-    console.log(arr[i]);
-    listNumbers(arr, ++i);
+function findRange(array){
+    let range = []
+    for(let i=0;i<array.length;i++){
+    if(array[i] > 100){
+        range.push(array[i])
+    }
+    else if(array[i] < 5000){
+        range.push(array[i])
+    }
+    else if(array[i] > 75000){
+        range.push(array[i])
+    }
+    else{
+        return array.length - 1
+    }
+    }
     
 }
-listNumbers(fibonacci);
 
 /*Here we pass the work off to the computer. we use a function, because we want to do something. we declare listNumbers, accepting an argument, and an
 * assignment to our variable i, which we will use to index through the array. we then set up a conditional statement if i equals the length of the 
