@@ -17,7 +17,9 @@ var _ = require('lodown-alecgilchrist');
  * 4. To test your work, run the following command in your terminal:
  *
  *    npm start --prefix ./projects/let-s-get-functional
- */
+  */
+
+// utility functions to use in problems 
  // nested arrays to smaller nested arrays
     function chunks(arr, chunkLen){
         var chunkList = [];
@@ -85,29 +87,44 @@ var maleCount = function(array) {
 // };
 
 var femaleCount = function(array){
-    const genders = _.map(array, function(person, i, people){
-        return person.gender;
-    })
-   const counts = _.reduce(genders, function(total, gender){
-        if(!total[gender]){
-            total[gender] = 1
+    // const genders = _.map(array, function(person, i, people){
+    //     return person.gender;
+    // })
+   const counts = _.reduce(array, function(genders, person, i){
+        if(!genders[person.gender]){
+            genders[person.gender] = 1
         }else{
-            total[gender] += 1
+            genders[person.gender] += 1
         }
-        return total
+        return genders
     }, {})
     return counts.female
     
 };
 
+// var oldestCustomer = function(array) {
+// var ages = _.pluck(customers, 'age');
+// let oldDude = ''
+// var oldestAge = ages.reduce(function(a, b) {
+//     return Math.max(a, b);
+// }); 
+// console.log(oldestAge)
+// var oldestPerson = _.each(customers,function (person, i, people) {
+//     if (person['age'] === oldestAge) {
+//     oldDude = person['name'];
+//     }
+// });
+// return oldDude;
+// };
+
 var oldestCustomer = function(array){
     let oldestAge = 0;
-  return _.reduce(array, function(total, value, i){
-        if(value.age > oldestAge){
-            oldestAge = value.age
-            total = value.name
+  return _.reduce(array, function(oldest, person, i){
+        if(person.age > oldestAge){
+            oldestAge = person.age
+            oldest = person.name
         }
-        return total;
+        return oldest;
     }, '');
 }
 
@@ -123,13 +140,17 @@ var youngestCustomer = function(array){
 }
 
 var averageBalance = function(array){
-    let count = array.length
-    let sum = function(sum, account) {
-        return sum + Number(account.balance.replace(/[^0-9\.-]+/g,""));
-    }
-    
-    return _.reduce(array, sum, 0) / array.length
+    return _.reduce(array, function(sum, account, i){
+       return (sum + Number(account.balance.replace(/[^0-9\.-]+/g,"")))
+    }, 0) / array.length
 }
+//     let count = array.length
+//     let sum = function(sum, account) {
+//         return sum + Number(account.balance.replace(/[^0-9\.-]+/g,""));
+//     }
+    
+//     return _.reduce(array, sum, 0) / array.length
+// }
 
 var firstLetterCount = function(array, letter){
     let count = 0;
@@ -157,44 +178,68 @@ var friendFirstLetterCount  = function(array, customer, letter){
 };
 
 var friendsCount = function(array, name){
-    const peoples = _.map(array, function(person, i, people){
-        return person.name
-    })
-    let ourFriends = []
+    // const peoples = _.map(array, function(person, i, people){
+    //     return person.name;
+    // });
+    let ourFriends = [];
      _.each(array, function(person, i, people){
                 _.each(person.friends, function(friend, i, friends){
                     if(friend.name === name){
-                        ourFriends.push(person.name)
+                        ourFriends.push(person.name);
                     }
-                })
+                });
                
-     })
-     return ourFriends
-}
+     });
+     return ourFriends;
+};
           
 var topThreeTags = function(array){
         const tags = _.map(array, function(person, i, people){
-        return person.tags
-    })
-    // attempt to use reduce
-    let topThree = []
-     const mergedTag = flatten(tags)
-     const reduced = _.reduce(mergedTag, function(total, tag, i){
+        return person.tags;
+    });
+     const mergedTag = flatten(tags);
+     const reducedTags = _.reduce(mergedTag, function(total, tag, i){
          if(!total[tag]){
-             total[tag] = 1
+             total[tag] = 1;
          }else{
-             total[tag] = total[tag] + 1
+             total[tag] = total[tag] + 1;
          }
-         return total
-     }, {})
-     _.each(reduced, function(value, key, collection){
-         if(value > 2){
-             topThree.push(key)
-         }
-     })
-     return topThree
-
-     
+         return total;
+     }, {});
+      let sorted = Object.keys(reducedTags);
+    sorted.sort(function(a,b) {
+        return reducedTags[b] - reducedTags[a];
+    });
+    return _.first(sorted, 3);
+};
+    
+    //  _.each(reduced, function(value, key, collection){
+    //      if(value > 2){
+    //          topThree.push(key)
+    //      }
+    //  })
+    //  return topThree
+// another use of reduce
+//      var topThreeTags = function(array) {
+//     let reduced = {};
+//     _.each(array, function(element, index, array) {
+//       return _.reduce(element.tags, function(previousResult, currentVal, currentIndex) {
+//             if(!reduced[currentVal]) {
+//                 reduced[currentVal] = 1;
+//             } else {
+//                 reduced[currentVal] += 1; 
+//             }
+//             return previousResult;
+//         }, 0);
+//     });
+//     let sorted = Object.keys(reduced);
+//     sorted.sort(function(a,b) {
+//         return reduced[b] - reduced[a];
+//     });
+//     return _.first(sorted, 3);
+    
+// };
+// The long way
 //     let topTags = []
 //     const mergedTag = flatten(tags)
 //     const singleTags = _.unique(mergedTag)
@@ -208,21 +253,54 @@ var topThreeTags = function(array){
 //     })
 // return topTags
 // }
-};
 
-var genderCount = function(array){
-    const genders = _.map(array, function(person, i, people){
-        return person.gender;
-    });
-    return _.reduce(genders, function(total, gender, i){
-        if(!total[gender]){
-            total[gender] = 1;
-        }else{
-            total[gender] = total[gender] + 1;
-        }
-        return total;
+
+// var genderCount = function(array){
+//     const genders = _.map(array, function(person, i, people){
+//         return person.gender;
+//     });
+//     return _.reduce(genders, function(total, gender, i){
+//         if(!total[gender]){
+//             total[gender] = 1;
+//         }else{
+//             total[gender] = total[gender] + 1;
+//         }
+//         return total;
+//     }, {});
+// };
+
+var genderCount = function(array) {
+  return _.reduce(array, function(genders, person, i) {
+      if(!genders[person.gender]) {
+          genders[person.gender] = 1;
+      } else {
+          genders[person.gender] += 1;
+      }
+        return genders;
     }, {});
 };
+// var genderCount = function(array){
+// var genders = {
+//       'female': 0,
+//       'male': 0,
+//       'transgender': 0
+//   };
+  
+//     _.reduce(array, function(previousResult, element, index) {
+//         if (element.gender === 'male') {
+//           genders['male'] += 1;
+//         } else if (element.gender === 'female') {
+//           genders['female'] += 1;
+//         } else if (element.gender === 'transgender') {
+//           genders['transgender'] += 1;
+//         } 
+//             console.log(previousResult)
+//         return previousResult;
+//     }, 0);
+//     console.log(genders)
+//     return genders;
+
+// };
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
