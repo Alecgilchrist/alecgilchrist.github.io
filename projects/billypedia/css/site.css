@@ -15,7 +15,13 @@ header {
     margin: auto;
 }
 
+ul {
+    list-style-type: square;
+}
 
+li {
+  padding: 0 10px;
+}
 /* navigation menu */
 
 nav {
