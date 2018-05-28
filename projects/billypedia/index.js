@@ -75,21 +75,3 @@ console.log(data.discography)
     })
     .fail(function() { console.log('getJSON on discography failed!'); });
 });
-
-// function swapImage(click){
-//   let #$imageContainer = $(`#${click.data.id}`)
-//   let pacifier = opspark.makePacifier($imageContainer[0])
-//   let path = $(click.currentTarget).attr('art')
-//   $imageContainer.append(pullImage(path, pacifier))
-// }
-// function pullImage(path, pacifier) {
-//   let $image = $('<img>')
-//   .attr('id', 'recording-image')
-//   .attr('src', path)
-//   .addClass('image')
-//   .on('load', function(click) {
-//       if(pacifier) pacifier.stop();
-//       $image.fadeIn(400)
-//     }
-//   return $image;
-// }
