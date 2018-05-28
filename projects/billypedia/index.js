@@ -12,8 +12,8 @@ $(document).ready(function() {
 
       const topRated = data.discography.topRated;
       const topRatedListItems = _.map(topRated, function(recording) {
-            return $('<li>').addClass('list-top-rated')
-                .append($('<div>').addClass('top-rated-title').text(recording.title));
+            return $('<li>').addClass('top-rated')
+                .append($('<div>').addClass('#list-top-rated').text(recording.title));
         });
         $('#list-top-rated').append(topRatedListItems);
 
