@@ -1,6 +1,6 @@
 'use strict';
 $(document).ready(function() {
-$.getJSON('./data.json', function (data) {    
+$.getJSON('./data.json', function (data) {
 describe('Billypedia', function () {
 
   it('should have a title Billypedia', function () {
@@ -14,7 +14,7 @@ describe('Billypedia', function () {
   it('should have three images on page', function () {
     expect($('img').length).to.equal(3);
   });
-  
+
   it('should change image of Billy when clicked', function () {
     data.images.billy.forEach(function(src) {
       expect($('#image-billy').attr('src')).to.equal(src);
@@ -22,13 +22,13 @@ describe('Billypedia', function () {
     })
     expect($('#image-billy').attr('src')).to.equal(data.images.billy[0]);
   });
-  
+
 	it('should have five top rated titles', function () {
     expect($('#list-top-rated > *').length).to.equal(5);
     expect($('#list-top-rated > li').length).to.equal(5);
     expect($('#list-top-rated > li.top-rated').length).to.equal(5);
 	});
-  
+
   it('should change top rated album image when clicking an album name', function () {
     const src = num => data.discography.topRated[num].art;
     expect($('#section-top-rated > div').length).to.equal(1);
@@ -47,13 +47,13 @@ describe('Billypedia', function () {
 	it('should have a ul with the id "list-recordings"', function () {
     expect($('#section-recordings > ul#list-recordings').length).to.equal(1);
 	});
-  
+
 	it('should have ten recording titles', function () {
     expect($('#list-recordings > *').length).to.equal(10);
     expect($('#list-recordings > li').length).to.equal(10);
     expect($('#list-recordings > li.recording').length).to.equal(10);
 	});
-  
+
   it('should change recordings album image when clicking an album name', function () {
     const src = num => data.discography.recordings[num].art;
     expect($('#section-recordings > div').length).to.equal(1);
