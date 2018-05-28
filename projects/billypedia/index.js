@@ -52,10 +52,10 @@ $(document).ready(function() {
         const $sectionRecordings = $('<section>').attr('id', 'section-recordings').addClass('recordings');
         const $headerRecordings = $('<header>').addClass('header-recordings').text('General Recordings');
         const $listRecordings = $('<ul>').attr('id', 'list-recordings').append(recordingsListItems);
-        const $recordingImages = $('<div>').attr('id', 'recording-image').addClass('image')
-        .append($('<div>').attr('id', 'image-container-recordings')
-        .addClass('image-container')
+        const $recordingImages = $('<div>').attr('id', 'image-container-recording').addClass('image-container')
+        .append($('<div>').attr('id', 'image-container-recording').addClass('image-container')
         .append("<img id='recording-image' src='images/album/eastern-rebellion.jpg'>"));
+      // .append(swapImage(_.first(recordings).art));
 
         $sectionRecordings
             .append($headerRecordings)
@@ -63,7 +63,7 @@ $(document).ready(function() {
             .append($listRecordings)
             .appendTo('#sidebar');
 
-        $('.recording').on('click', {id: 'image-container-recordings'}, swapImage);
+        $('.recording').on('click', {id: 'image-container-recording'}, swapImage);
 
         const rider = data.rider
         const riderItems = _.map(rider, item => {
@@ -122,7 +122,7 @@ function findImage(path, pacifier) {
     const $image = $('<img>')
         .attr('id', 'recording-image')
         .attr('src', path)
-        .addClass('image')
+        .addClass('img')
         .on('load', function(event) {
             if(pacifier) pacifier.stop();
             $image.fadeIn(200)
