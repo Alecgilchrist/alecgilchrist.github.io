@@ -9,6 +9,20 @@ $(document).ready(function() {
       $('nav').css("background-color", 'rgba(24, 24, 24, 0.36)')
       $('#section-quotes').css('color', 'rgba(51, 12, 24, 0.78)')
       $('#section-praise').css('color', 'rgba(51, 12, 24, 0.78)')
+      $('#image-billy').css('border-radius', '20px')
+
+      const headshots = data.images.billy;
+      const $headshotSwap = $('#image-billy');
+      $headshotSwap.on('click', click => {
+        let i = $headshotSwap.attr('i');
+        const pacifier = opspark.makePacifier($('#image-container-billy')[0]);
+        $headshotSwap.attr('src', headshots[++i] || headshots[i = 0])
+        .attr('i', i)
+        .on('load', click => {
+          pacifier.stop()
+          $(click.currentTarget).fadeIn(200)
+        })
+      })
 
       const topRated = data.discography.topRated;
       const topRatedListItems = _.map(topRated, function(recording) {
@@ -37,6 +51,9 @@ $(document).ready(function() {
             .append($listRecordings)
             .appendTo('#sidebar');
 
+        // $('.recording').on('click', {id: 'image-container-recording'}, swapImage);
+
+
 console.log(data.discography)
 
             // <div id="image-container-recording" class="image-container">
@@ -48,13 +65,31 @@ console.log(data.discography)
         // uncomment this to inspect all available data; delete when done //
 
         // EXAMPLE: Looping over top rated recordings; replace with your code //
-
-        _.forEach(topRated, function(recording) {
-            console.log(recording);
-        });
+        //
+        // _.forEach(topRated, function(recording) {
+        //     console.log(recording);
+        // });
 
 
         // YOUR CODE ABOVE HERE //
     })
     .fail(function() { console.log('getJSON on discography failed!'); });
 });
+
+// function swapImage(click){
+//   let #$imageContainer = $(`#${click.data.id}`)
+//   let pacifier = opspark.makePacifier($imageContainer[0])
+//   let path = $(click.currentTarget).attr('art')
+//   $imageContainer.append(pullImage(path, pacifier))
+// }
+// function pullImage(path, pacifier) {
+//   let $image = $('<img>')
+//   .attr('id', 'recording-image')
+//   .attr('src', path)
+//   .addClass('image')
+//   .on('load', function(click) {
+//       if(pacifier) pacifier.stop();
+//       $image.fadeIn(400)
+//     }
+//   return $image;
+// }
